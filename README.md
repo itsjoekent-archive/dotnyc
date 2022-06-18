@@ -1,32 +1,30 @@
 # dotnyc
 
-This repo is a custom static site engine I created in NodeJS to transform Markdown into static pages. The frontend stack for this website is incredibly barebones.
+my small corner of the internet.
 
-## Local Development
-
-Requires NodeJS >= version 10.
+## Setup
 
 ```sh
-$ cp .env.example .env
-# Create an empty AWS IAM account, does not need any permissions.
-
+$ nvm use
 $ npm install
-$ npm run media
 $ npm start
 ```
 
-## Adding a new blog post
 
-1. Create a new folder under `content/${slug}`.
-2. Add a `meta.json` file,
-  ```json
-  {
-    "title": "...",
-    "description": "...",
-    "publishedAt": "00/00/0000",
-    "cover": "...jpg",
-    "coverAlt": "..."
+```js
+const pages = [
+  '/work/all-in',
+  '/work/arcadia',
+  '/work/data-for-progress-2020',
+  '/work/dosomething',
+  '/work/fuller-project',
+].reduce((acc, path) => ({
+  ...acc,
+  [path]: async () => import(`../../content${path}.toml`),
+}), {});
+
+export default async function loadContent(path) {
+  if (pages[path]) {
+    return await pages[path]();
   }
-  ```
-3. Add a `content.md` file with Markdown.
-4. For content specific media, create a folder in [s3://itsjoekent/assets](https://s3.console.aws.amazon.com/s3/buckets/itsjoekent?region=us-east-1&prefix=assets/) which will get pulled down at build time. You can also run `npm run media` to fetch the files locally.
+```
