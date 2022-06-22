@@ -18,7 +18,7 @@ async function fetchAllContent() {
 
 (async function () {
   try {
-    const initialContent = window.PAGE_DATA;
+    const initialContent = { [`${window.location.pathname}`]: window.PAGE_DATA };
 
     const container = document.getElementById('app');
     const root = createRoot(container);
