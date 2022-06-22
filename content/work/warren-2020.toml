@@ -15,7 +15,7 @@ type = "markdown"
 markdown = """\
 I quietly joined the Elizabeth Warren campaign in December 2019, just before the FEC paperwork was officially filed. For the next year, I worked tirelessly as the tech lead of the frontend engineering team to collaborate with people across the campaign, ranging from design to policy to organizers, to build a website that helped serve the campaign.
 
-Below is a small sample of projects I played a large part in, from ideation to implementation. You can find a more holistic post-mortem here, or a deep dive into our website architecture here.
+Below is a small sample of projects I played a large part in, from ideation to implementation. You can find a more holistic post-mortem [here](https://joekent.nyc/how-elizabeth-warren-dot-com-redefined-traditional-campaign-websites/), or a deep dive into our website architecture [here](https://joekent.nyc/ssr-react-realtime/).
 """
 
 [sections.calculatorsVideo]
@@ -66,9 +66,9 @@ markdown = """\
 
 Have you ever scrolled through an interactive story in a publication like the New York Times and thought, wow, that was pretty cool? That's what we wanted to build to help people understand the campaign message.
 
-We built two scrollytelling projects, one for explaining wealth inequality, and one for Senator Warren's bio. The video above is from a chart I built for the wealth gap page, which shows the vast difference in wealth between different famous individuals.
+We built two scrollytelling projects, one for explaining wealth inequality, and one for Senator Warren's bio. The video above is from a chart I built for the wealth gap page, which shows the vast difference in wealth between famous individuals.
 
-This project was a collaboration between the tech, creative, and design teams. [Shout-out from the Center for American Politics and Design](https://twitter.com/politicsndesign/status/1207758021092360192)
+This project was a collaboration between the tech, creative, and design teams. And here is a [shout-out from the Center for American Politics and Design](https://twitter.com/politicsndesign/status/1207758021092360192).
 """
 
 [sections.homepageVideo]

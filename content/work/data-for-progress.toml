@@ -10,7 +10,7 @@ type = "panel"
 imageSrc = "/assets/portfolio/dfp-national.png"
 imageAlt = "Screenshot of a website displaying presidential election night results across the country"
 markdown = """\
-Some of the greatest fears leading into the 2020 election were disinformation, misreporting, and early predictions that could sow chaos if they wound up being incorrect (think: [NYT election night needle](https://www.rollingstone.com/politics/politics-news/iowa-caucus-new-york-times-election-needle-donald-trump-947101/). This was especially important given the increased use of mail-in ballots, and that states were going to take much longer to report results.
+Some of the greatest fears leading into the 2020 election were disinformation, misreporting, and early predictions that could sow chaos if they wound up being incorrect (think: [NYT election night needle](https://www.rollingstone.com/politics/politics-news/iowa-caucus-new-york-times-election-needle-donald-trump-947101/)). This was especially important given the increased use of mail-in ballots, and that states were going to take much longer to report results.
 
 I worked with Data For Progress, a think tank for the future of progressivism, as a freelancer to design and build the frontend of an election night reporting website that focused on accurate, _we don't know what we don't know_, reporting of results, in order to counter bad narratives that might emerge on election night.
 

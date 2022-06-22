@@ -25,7 +25,7 @@ type = "markdown"
 markdown = """\
 Prior to building the ballot dropoff website, I worked with the campaign to design and build a breakthrough custom relational organizing tool that allowing anyone interested in becoming involved with the Markey Campaign to create and distribute their own supporter page. At the conclusion of the campaign, hundreds of supporter pages identifying thousands of supporters had been created.
 
-You can read more about the Ed Markey relational organizing program [here](https://medium.com/@emma.h.friend/ed-markeys-relational-first-organizing-approach-137bbfc4852).
+[Read more about the Ed Markey's Relational-First Organizing Approach](https://medium.com/@emma.h.friend/ed-markeys-relational-first-organizing-approach-137bbfc4852), and how this tool helped the campaign garner over 17,000 voter contacts.
 """
 
 [sections.relational2]

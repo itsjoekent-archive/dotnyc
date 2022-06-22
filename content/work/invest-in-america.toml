@@ -13,7 +13,7 @@ coverAlt = "List of possible buttons describing ways to spend a government stimu
 [sections.summary]
 type = "markdown"
 markdown = """\
-I worked with [Invest in America](https://twitter.com/InvestNowUSA) to create a rapid response calculator to advocate Americans recieve a higher stimulus check from the government during the pandemic.
+I worked with [Invest in America](https://twitter.com/InvestNowUSA) to create a simple policy calculator to advocate Americans recieve a higher stimulus check from the government during the pandemic.
 
 I designed & built the calculator on a rapid response timeline.
 """
