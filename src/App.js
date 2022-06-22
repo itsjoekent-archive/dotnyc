@@ -29,6 +29,9 @@ export function App(props) {
             setContent({ path: location, content: _404 });
           } else {
             setContent({ path: location, content });
+            document.title = content.title
+              ? `${content.title} | Joe Kent`
+              : 'Joe Kent';
           }
         }
       } catch (error) {

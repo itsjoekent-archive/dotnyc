@@ -101,3 +101,15 @@
     color: var(--medium-gray);
   }
 }
+
+.hp-art {
+  display: none;
+
+  @media (min-width: 900px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
