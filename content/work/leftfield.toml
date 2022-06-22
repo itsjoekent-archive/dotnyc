@@ -1,0 +1,26 @@
+title = "Leftfield"
+subtitle = "Launched a startup to provide a website builder for political campaigns"
+
+template = "content"
+
+[sections]
+
+[sections.hero]
+type = "video"
+videoSrc = "/assets/portfolio/leftfielddemo.mp4"
+
+[sections.lede]
+type = "markdown"
+markdown = """\
+I launched Leftfield after finding myself constantly being asked to make small, incidental content websites for campaigns, because the agency market was too expensive. My pitch was simple, Squarespace for Campaigns.
+
+The tool featured custom components specific to the needs of campaigns, and a thoroughly detailed system for applying settings to those components whether it be the color of a button or the link for a donation ask. The styling engine was a beast, and allowed for cascading responsive styling, themes, and component style reusability. 
+
+The component render engine was also a great engineering accomplishment, effectively being able to take a JSON blob describing a tree of components, and turn it into React components that output server side rendered HTML, hydrate on the client locally, and render in realtime while using the editor.
+
+On the backend, because I was a small startup with no funding and could not afford something like Cloudflare SSL as a service, I had to create my own infrastructure for automatically managing HTTPS certificates. There was also additional work done to create the build queue, scalable hosting, caching, etc.
+
+Unfortunately, I was unable to secure funding for the project, and being a solo-founder living in a high cost of living city, I had to make the sad decision to end the startup early. 
+
+That being said, _a lot of code was written_, and you can see a short demo of the tool above. The code is open source and viewable [here](https://github.com/itsjoekent/leftfield).
+"""

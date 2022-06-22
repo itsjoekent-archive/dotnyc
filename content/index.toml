@@ -1,0 +1,78 @@
+title = "Joe Kent"
+template = "homepage"
+
+[sections]
+
+[sections.bio]
+header = "hello!"
+headerElementType = "h1"
+subheader = "I’m Joe, a self-taught software engineer based out of NYC, and I leverage my skills in technology to promote progressive causes. In my spare time, you can find me playing softball at Central Park, or tweeting about how much I dislike web3. You can check out some of my work below."
+imageSrc = "/assets/headshot.jpg"
+imageAlt = "Photo of Joe with a bright orange background"
+linkLabel = "Read my bio"
+linkTarget = "/bio"
+type = "track"
+
+[sections.warren]
+header = "Warren for President"
+subheader = "Led the frontend team behind elizabethwarren.com and pushed the boundaries of using digital web experiences in campaigns."
+imageSrc = "/assets/portfolio/warren.jpg"
+imageAlt = "Photo of Joe standing in front of Senator Warren holding a campaign sign"
+linkTarget = "/work/warren-2020"
+type = "ladder"
+
+[sections.markey]
+header = "Markey for Senate"
+subheader = "Created a custom in-house relational organizing tool and mail-in ballot website that helped propel the campaign to victory."
+imageSrc = "/assets/portfolio/markey.jpeg"
+imageAlt = "Senator Markey standing on stage in front of the American flag"
+linkTarget = "/work/markey-2020"
+type = "ladder"
+
+[sections.leftfield]
+header = "Leftfield"
+subheader = "Launched a startup to provide a website builder for political campaigns"
+imageSrc = "/assets/portfolio/leftfield.jpg"
+imageAlt = "Slide from the Leftfield pitch deck that says 'Every righteous fight deserves a great website'"
+linkTarget = "/work/leftfield"
+type = "ladder"
+
+[sections.dfp]
+header = "Data For Progress"
+subheader = "Worked in collaboration with Data For Progress to design and build an election night reporting dashboard to counter disinformation and misreporting."
+imageSrc = "/assets/portfolio/dfp.jpg"
+imageAlt = "Screenshot of the election night reporting tool showing a map of all states represented as hexagon tiles"
+linkTarget = "/work/data-for-progress"
+type = "ladder"
+
+[sections.ga]
+header = "Georgia Senate Runoffs"
+subheader = "Designed & built social & relational organizing tools for the Georgia senate runoffs."
+imageSrc = "/assets/portfolio/ossoff.png"
+imageAlt = "Senator Ossoff holding a microphone"
+linkTarget = "/work/georgia-2020"
+type = "ladder"
+
+[sections.iia]
+header = "Invest In America"
+subheader = "Created a rapid response calculator to help an advocacy group communicate why a larger stimulus check was necessary."
+imageSrc = "/assets/portfolio/investinamerica.png"
+imageAlt = "List of possible buttons describing ways to spend a government stimulus check, with Senator McConnell trolling the user"
+linkTarget = "/work/invest-in-america"
+type = "ladder"
+
+[additionalWork]
+freelance = [
+  "ALL IN: The Fight For Democracy",
+  "Fuller Project",
+  "Let America Vote",
+  "Neighbor Network",
+  "When We All Vote",
+  "Vote From Home",
+]
+fulltime = [
+  "Arcadia",
+  "Blue State",
+  "Blush",
+  "DoSomething",
+]

@@ -1,0 +1,105 @@
+title = "Warren For President"
+subtitle = "Led the frontend team behind elizabethwarren.com and pushed the boundaries of using digital web experiences in campaigns."
+
+template = "content"
+
+[sections]
+
+[sections.hero]
+type = "cover"
+coverSrc = "/assets/warren.jpg"
+coverAlt = "Photo of Joe standing in front of Senator Warren holding a campaign sign"
+
+[sections.lede]
+type = "markdown"
+markdown = """\
+I quietly joined the Elizabeth Warren campaign in December 2019, just before the FEC paperwork was officially filed. For the next year, I worked tirelessly as the tech lead of the frontend engineering team to collaborate with people across the campaign, ranging from design to policy to organizers, to build a website that helped serve the campaign.
+
+Below is a small sample of projects I played a large part in, from ideation to implementation. You can find a more holistic post-mortem here, or a deep dive into our website architecture here.
+"""
+
+[sections.calculatorsVideo]
+type = "video"
+videoSrc = "/assets/portfolio/billionaire-calculator.mp4"
+
+[sections.calculators]
+type = "markdown"
+markdown = """\
+## Policy calculators
+
+Over the duration of the Democratic primary, the campaign released dozens of detailed plans. Rather than place the burden on voters to figure out how these plans would impact them, we compiled the data & algorithms necessary, and created extremely simple web experiences to calculate the information they needed. 
+
+The campaign calculators were often built in a rapid-response timeline, and required detailed collaboration across deptartments from tech to design to policy. The content architecture behind the scenes allowed for most of the calculators to be built or modified without deploying code.
+
+The calculators ended up being some of our most viral pieces of web content, and generated lots of organic social media.
+
+### Press coverage
+- [Elizabeth Warren helps out 'confused' billionaires with new tax calculator (The Guardian)](https://www.theguardian.com/us-news/2019/nov/08/elizabeth-warren-billionaires-tax-calculator)
+- [Elizabeth Warren introduces a calculator for her student debt forgiveness plan (CNN)](https://www.cnn.com/2019/05/03/politics/elizabeth-warren-calculator-student-debt-forgiveness/index.html)
+- [Elizabeth Warren releases child-care cost calculator to promote universal child-care plan (The Boston Globe)](https://www.bostonglobe.com/news/politics/2019/05/30/elizabeth-warren-releases-child-care-cost-calculator-promote-universal-child-care-plan/vbIKtfNThsI1G5UDDBUpUO/story.html)
+"""
+
+[sections.donorWallVideo]
+type = "video"
+videoSrc = "/assets/portfolio/donor-wall.mp4"
+
+[sections.donorWall]
+type = "markdown"
+markdown = """\
+## Grassroots Donor Wall
+
+The campaign relied on small dollar contributions from supporters across the country. This live-updating donor wall helped celebrate all of our supporters.
+
+Each donor was also emailed a code they could enter that allowed them to see their place on the donor wall, and other fundraising achievements they hit.
+
+This project was a collaboration between the tech, fundraising, and design team.
+"""
+
+[sections.scrollytellingVideo]
+type = "video"
+videoSrc = "/assets/portfolio/wealth-chart.mp4"
+
+[sections.scrollytelling]
+type = "markdown"
+markdown = """\
+## Scrollytelling
+
+Have you ever scrolled through an interactive story in a publication like the New York Times and thought, wow, that was pretty cool? That's what we wanted to build to help people understand the campaign message.
+
+We built two scrollytelling projects, one for explaining wealth inequality, and one for Senator Warren's bio. The video above is from a chart I built for the wealth gap page, which shows the vast difference in wealth between different famous individuals.
+
+This project was a collaboration between the tech, creative, and design teams. [Shout-out from the Center for American Politics and Design](https://twitter.com/politicsndesign/status/1207758021092360192)
+"""
+
+[sections.homepageVideo]
+type = "video"
+videoSrc = "/assets/portfolio/homepage.mp4"
+
+[sections.homepage]
+type = "markdown"
+markdown = """\
+## Homepage redesign
+
+During the middle of the campaign, we arrived at a crossroads with our homepage needing to serve a wide variety of entrypoints and also having a strong desire for showing more video of the candidate.
+
+In close collaboration with digital mobilization, design and video, the tech team rebuilt the homepage to be more modular and visually engaging. Later in the campaign, we would personalize the homepage for different voters visitng the website.
+"""
+
+[sections.climateVideo]
+type = "video"
+videoSrc = "/assets/portfolio/melting.mp4"
+
+[sections.climate]
+type = "markdown"
+markdown = """\
+## Climate explainer
+
+Towards the end of the campaign, I used some of my spare time to independently design and build a scrollytelling project that would explain the impacts of climate change in your specific neighborhood.
+
+The project was unfinished due to the timing of the campaign ending, but I wanted to showcase the state it was in (I thought it was kinda cool!).
+"""
+
+[sections.team]
+type = "cover"
+coverSrc = "/assets/warren-team.jpeg"
+coverAlt = "Campaign staff that contributed to ElizabethWarren.com standing next to Senator Warren"

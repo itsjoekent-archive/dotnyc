@@ -10,21 +10,8 @@ $ npm install
 $ npm start
 ```
 
-
-```js
-const pages = [
-  '/work/all-in',
-  '/work/arcadia',
-  '/work/data-for-progress-2020',
-  '/work/dosomething',
-  '/work/fuller-project',
-].reduce((acc, path) => ({
-  ...acc,
-  [path]: async () => import(`../../content${path}.toml`),
-}), {});
-
-export default async function loadContent(path) {
-  if (pages[path]) {
-    return await pages[path]();
-  }
-```
+- Upload the custom public/assets I have to S3
+- Footer
+- Load content with fetch(), parse TOML
+- Post-build script to create all html files, add JSON on the page
+- Homepage decoration

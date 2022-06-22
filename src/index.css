@@ -1,3 +1,10 @@
+:root {
+  --black: #000;
+  --dark-blue: #0D53A5;
+  --medium-gray: #6B7786;
+  --white: #FFFFFF;
+}
+
 * {
   font-family: 'Open Sans', sans-serif;
 }

@@ -1,4 +1,5 @@
 pages = [
+  "/index",
   "/work/arcadia",
   "/work/dosomething",
   "/work/warren-2020",

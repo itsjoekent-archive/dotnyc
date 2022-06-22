@@ -1,10 +1,12 @@
 {
   "scripts": {
     "start": "parcel --open --port 5000 src/index.html",
-    "build": "parcel build"
+    "build": "parcel build",
+    "media": "node bin/media.js",
+    "postbuild": "cp -r public/* dist/"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
-    "@parcel/transformer-css": {
+  "@parcel/transformer-css": {
     "drafts": {
       "nesting": true
     }
@@ -16,8 +18,13 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "aws-sdk": "^2.1159.0",
+    "copy-to-clipboard": "^3.3.1",
+    "dotenv": "^16.0.1",
+    "download": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.3",
     "wouter": "^2.8.0-alpha.2"
   }
 }

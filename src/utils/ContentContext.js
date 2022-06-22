@@ -5,14 +5,16 @@ export const defaultContext = {};
 const ContentContext = React.createContext(defaultContext);
 
 export function useContent() {
-  const content = React.useContent(ContentContext);
+  const content = React.useContext(ContentContext);
   return content;
 }
 
 export function useContentStore(initialContent) {
   const [state, dispatch] = React.useReducer((state, action) => {
     const { path, content } = action;
-    return { ...state, [path]: content || {} };
+    const finalPath = path.replaceAll('/index', '/');
+
+    return { ...state, [finalPath]: content || {} };
   }, initialContent);
 
   return { setContent: dispatch, contentState: state };

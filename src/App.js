@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'wouter';
+import Navigation from './components/Navigation';
 import ContentContext, { useContentStore } from './utils/ContentContext';
 import loadContent from './utils/loadContent';
 
+const Content = React.lazy(() => import('./pages/Content'));
 const Homepage = React.lazy(() => import('./pages/Homepage'));
 const Work = React.lazy(() => import('./pages/Work'));
 
@@ -46,15 +48,18 @@ export function App(props) {
   ]);
 
   return (
-    <main>
-      <ContentContext.Provider value={activeContent}>
-        <React.Suspense>
-          <Switch>
-            <Route path="/" component={Homepage} />
-            <Route path="/work/:slug" component={Work} />
-          </Switch>
-        </React.Suspense>
-      </ContentContext.Provider>
-    </main>
+    <Fragment>
+      <Navigation />
+      <main>
+        <ContentContext.Provider value={activeContent}>
+          <React.Suspense>
+            <Switch>
+              <Route path="/" component={Homepage} />
+              <Route path="/work/:slug" component={Content} />
+            </Switch>
+          </React.Suspense>
+        </ContentContext.Provider>
+      </main>
+    </Fragment>
   );
 }
