@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "parcel --open --port 5000 src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "npx parcel build src/index.html",
     "media": "node bin/media.js",
     "content": "cp -R content dist",
     "deploy": "npm run build && npm run media && npm run content && node bin/deploy"
