@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import copy from 'copy-to-clipboard';
 import home from './home.png';
 import './index.css';
 
 export default function Navigation() {
+  const [location] = useLocation();
   const onEmailClick = useCallback(() => {
     copy('hey@joekent.nyc');
     alert('Copied to clipboard!');
@@ -12,9 +13,11 @@ export default function Navigation() {
 
   return (
     <nav className="navigation">
-      <Link href="/">
-        <img src={home} alt="New York City Brownstone" />
-      </Link>
+      {location === '/' ? <span aria-disabled /> : (
+        <Link className="navigation__home" href="/">
+          {'< Back home'}
+        </Link>
+      )}
       <div className="navigation__links">
         <button onClick={onEmailClick}>Email</button>
         <a

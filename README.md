@@ -10,6 +10,5 @@ $ npm install
 $ npm start
 ```
 
-- Better nav home button
 - Footer
 - Homepage decoration

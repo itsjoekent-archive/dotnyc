@@ -90,6 +90,14 @@
   & ul {
     margin: 0;
   }
+
+  & a {
+    color: var(--dark-blue);
+
+    &:hover {
+      color: var(--black);
+    }
+  }
 }
 
 .ct-markdown {

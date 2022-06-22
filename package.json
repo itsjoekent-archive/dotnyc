@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "parcel --open --port 5000 src/index.html",
+    "start": "npx parcel --port 5000 src/index.html",
     "build": "npx parcel build src/index.html",
     "media": "node bin/media.js",
     "content": "cp -R content dist",

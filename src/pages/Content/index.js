@@ -18,17 +18,17 @@ export default function Content() {
 
           switch (data.type) {
             case 'cover': return (
-              <img className="ct-cover" src={data.coverSrc} alt={data.coverAlt} />
+              <img key={key} className="ct-cover" src={data.coverSrc} alt={data.coverAlt} />
             );
 
             case 'markdown': return (
-              <div className="ct-markdown ct-text">
+              <div key={key} className="ct-markdown ct-text">
                 <ReactMarkdown>{data.markdown}</ReactMarkdown>
               </div>
             );
 
             case 'panel': return (
-              <div className="ct-panel">
+              <div key={key} className="ct-panel">
                 <img src={data.imageSrc} alt={data.imageAlt} />
                 <div className="ct-panel__markdown ct-text">
                   <ReactMarkdown>{data.markdown}</ReactMarkdown>
@@ -37,7 +37,7 @@ export default function Content() {
             );
 
             case 'video': return (
-              <video className="ct-video" controls muted>
+              <video key={key} className="ct-video" controls muted>
                 <source type="video/mp4" src={data.videoSrc} />
               </video>
             );

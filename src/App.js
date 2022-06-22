@@ -47,6 +47,10 @@ export function App(props) {
     setContent,
   ]);
 
+  useEffect(() => {
+    if (!window.location.hash) window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <Fragment>
       <Navigation />
@@ -55,6 +59,7 @@ export function App(props) {
           <React.Suspense>
             <Switch>
               <Route path="/" component={Homepage} />
+              <Route path="/bio" component={Content} />
               <Route path="/work/:slug" component={Content} />
             </Switch>
           </React.Suspense>
