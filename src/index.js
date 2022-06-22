@@ -18,8 +18,7 @@ async function fetchAllContent() {
 
 (async function () {
   try {
-    const initialContent =
-      process.env.NODE_ENV !== 'production' ? await fetchAllContent() : window.CONTENT;
+    const initialContent = window.PAGE_DATA;
 
     const container = document.getElementById('app');
     const root = createRoot(container);

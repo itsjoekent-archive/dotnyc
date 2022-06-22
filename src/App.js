@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'wouter';
 import Navigation from './components/Navigation';
 import ContentContext, { useContentStore } from './utils/ContentContext';
-import loadContent from './utils/loadContent';
+// import loadContent from './utils/loadContent';
 
 const Content = React.lazy(() => import('./pages/Content'));
 const Homepage = React.lazy(() => import('./pages/Homepage'));
@@ -17,35 +17,35 @@ export function App(props) {
 
   const activeContent = contentState[location];
 
-  useEffect(() => {
-    let cancel = false;
+  // useEffect(() => {
+  //   let cancel = false;
 
-    async function fetch() {
-      try {
-        const content = await loadContent(location);
+  //   async function fetch() {
+  //     try {
+  //       const content = await loadContent(location);
 
-        if (!cancel) {
-          if (!content || Object.keys(content).length === 0) {
-            setContent({ path: location, content: _404 });
-          } else {
-            setContent({ path: location, content });
-          }
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
+  //       if (!cancel) {
+  //         if (!content || Object.keys(content).length === 0) {
+  //           setContent({ path: location, content: _404 });
+  //         } else {
+  //           setContent({ path: location, content });
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
 
-    if (!activeContent) {
-      fetch();
-    }
+  //   if (!activeContent) {
+  //     fetch();
+  //   }
 
-    return () => cancel = true;
-  }, [
-    activeContent,
-    location,
-    setContent,
-  ]);
+  //   return () => cancel = true;
+  // }, [
+  //   activeContent,
+  //   location,
+  //   setContent,
+  // ]);
 
   return (
     <Fragment>
