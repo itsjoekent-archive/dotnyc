@@ -46,7 +46,10 @@ async function getTomlFiles(directory) {
         `window.PAGE_DATA={};`,
         `window.PAGE_DATA=${JSON.stringify(pageData)};`
       )
-      .replace('<title>placeholder</title>', pageData.title || 'Joe Kent');
+      .replace(
+        '<title>placeholder</title>',
+        `<title>${pageData.title || 'Joe Kent'}</title>`
+      );
 
     const distDirectory = path.join(process.cwd(), '/dist', realPath);
 
