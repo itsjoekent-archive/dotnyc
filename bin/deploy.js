@@ -41,10 +41,12 @@ async function getTomlFiles(directory) {
 
     console.log(`Building ${realPath}`);
     
-    const realHtml = indexHtml.replace(
-      `window.PAGE_DATA={};`,
-      `window.PAGE_DATA=${JSON.stringify(pageData)};`
-    );
+    const realHtml = indexHtml
+      .replace(
+        `window.PAGE_DATA={};`,
+        `window.PAGE_DATA=${JSON.stringify(pageData)};`
+      )
+      .replace('<title>placeholder</title>', pageData.title || 'Joe Kent');
 
     const distDirectory = path.join(process.cwd(), '/dist', realPath);
 

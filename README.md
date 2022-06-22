@@ -10,7 +10,6 @@ $ npm install
 $ npm start
 ```
 
+- Better nav home button
 - Footer
-- Load content with fetch(), parse TOML
-- Post-build script to create all html files, add JSON on the page
 - Homepage decoration
