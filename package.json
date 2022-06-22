@@ -3,7 +3,8 @@
     "start": "parcel --open --port 5000 src/index.html",
     "build": "parcel build src/index.html",
     "media": "node bin/media.js",
-    "deploy": "npm run build && npm run media && node bin/deploy"
+    "content": "cp -R content dist",
+    "deploy": "npm run build && npm run media && npm run content && node bin/deploy"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "@parcel/transformer-css": {

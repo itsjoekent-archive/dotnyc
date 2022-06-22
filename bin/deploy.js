@@ -1,6 +1,3 @@
-// copy index file to all the right places
-// inject json on each
-
 const fs = require('fs').promises;
 const path = require('path');
 
