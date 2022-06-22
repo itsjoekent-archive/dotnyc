@@ -46,7 +46,7 @@ async function getTomlFiles(directory) {
     
     const realHtml = indexHtml.replace(
       `window.PAGE_DATA={};`,
-      `window.PAGE_DATA=JSON.parse("${JSON.stringify(pageData)}");`
+      `window.PAGE_DATA=${JSON.stringify(pageData)};`
     );
 
     const distDirectory = path.join(process.cwd(), '/dist', realPath);
