@@ -41,7 +41,7 @@
   & h1 {
     font-size: 32px;
     font-weight: 700;
-    color: var(--dark-blue);
+    color: var(--accent);
     line-height: 1.1;
 
     @media (min-width: 700px) {
@@ -92,7 +92,7 @@
   }
 
   & a {
-    color: var(--dark-blue);
+    color: var(--accent);
 
     &:hover {
       color: var(--black);

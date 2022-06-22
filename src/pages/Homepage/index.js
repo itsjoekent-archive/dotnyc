@@ -51,7 +51,7 @@ export default function Homepage(props) {
       particle = chaos(particle);
 
       const [x1, y1, z1] = particle;
-      ctx.strokeStyle = `hsl(${180 + Math.abs(x1) * 10}, 50%, 50%)`;
+      ctx.strokeStyle = `hsl(${Math.abs(x1) * 10}, 50%, 50%)`;
 
       const left = canvas.width * .66;
       const top = canvas.height / 2;

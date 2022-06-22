@@ -24,7 +24,7 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--dark-blue);
+      color: var(--accent);
     }    
   }
 
@@ -43,7 +43,7 @@
       cursor: pointer;
 
       &:hover {
-        color: var(--dark-blue);
+        color: var(--accent);
       }
     }
 
