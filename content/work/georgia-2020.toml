@@ -26,7 +26,7 @@ coverAlt = "Screenshot of a web page describing the concept of relational organi
 
 [sections.warnockScreenshot]
 type = "cover"
-coverSrc = "/assets/warnock.jpg"
+coverSrc = "/assets/portfolio/warnock.jpg"
 coverAlt = "Screenshot of a web app that lets you upload a photo and customize it to match the campaign branding"
 
 [sections.warnock]

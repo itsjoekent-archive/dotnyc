@@ -7,7 +7,7 @@ template = "content"
 
 [sections.hero]
 type = "cover"
-coverSrc = "/assets/warren.jpg"
+coverSrc = "/assets/portfolio/warren.jpg"
 coverAlt = "Photo of Joe standing in front of Senator Warren holding a campaign sign"
 
 [sections.lede]
@@ -101,5 +101,5 @@ The project was unfinished due to the timing of the campaign ending, but I wante
 
 [sections.team]
 type = "cover"
-coverSrc = "/assets/warren-team.jpeg"
+coverSrc = "/assets/portfolio/warren-team.jpeg"
 coverAlt = "Campaign staff that contributed to ElizabethWarren.com standing next to Senator Warren"
