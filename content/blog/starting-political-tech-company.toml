@@ -1,3 +1,11 @@
+title = "Quit my job. Time to build something new."
+template = "content"
+
+[sections]
+
+[sections.content]
+type = "markdown"
+markdown = """\
 From 2014 to 2020, every job I had was somewhere _“mission driven”_, which for me really just meant advancing a liberal or left leaning agenda. But when I was in high school trying to find a tech internship, I wasn’t looking for this kind of mission oriented work, I just wanted someone to hire me and give me a shot so I could skip going to college. 
 
 Since that first internship at DoSomething.org, I’ve wound up doing website work for numerous advocacy organizations, senate races, and a presidential campaign. I don’t think anyone, myself included, could have predicted how quickly I’d become radicalized and make advancing progressive causes a defining part of my life.
@@ -35,3 +43,4 @@ There will certainly still be plenty of campaigns and organizations that pay an 
 To get in touch, my email is hey@joekent.nyc, and you can find me on Twitter [@itsjoekent](https://twitter.com/itsjoekent).
 
 And if you made it this far, thanks for reading! I hope to have some exciting updates soon on where this is all going.
+"""
