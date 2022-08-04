@@ -1,5 +1,0 @@
-{
-  "title": "Server Side Rendering React In Realtime Without Melting Your Servers",
-  "description": "How ElizabethWarren.com was able to render content updates from a headless CMS on the fly, cache everything, and serve the entire website from an S3 bucket.",
-  "publishedAt": "3/16/2020"
-}

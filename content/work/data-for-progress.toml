@@ -1,0 +1,44 @@
+title = "Data For Progress"
+subtitle = "Worked in collaboration with Data For Progress to design and build an election night reporting dashboard to counter disinformation and misreporting."
+
+template = "content"
+
+[sections]
+
+[sections.home]
+type = "panel"
+imageSrc = "/assets/portfolio/dfp-national.png"
+imageAlt = "Screenshot of a website displaying presidential election night results across the country"
+markdown = """\
+Some of the greatest fears leading into the 2020 election were disinformation, misreporting, and early predictions that could sow chaos if they wound up being incorrect (think: [NYT election night needle](https://www.rollingstone.com/politics/politics-news/iowa-caucus-new-york-times-election-needle-donald-trump-947101/)). This was especially important given the increased use of mail-in ballots, and that states were going to take much longer to report results.
+
+I worked with Data For Progress, a think tank for the future of progressivism, as a freelancer to design and build the frontend of an election night reporting website that focused on accurate, _we don't know what we don't know_, reporting of results, in order to counter bad narratives that might emerge on election night.
+
+In doing this, we made some bold design choices that run counter to the typical election night reporting website you might be familiar with.
+
+For example, the map by default is mono-chromatic, showing you how many votes likely still need to be counted in that state, rather than the partisan tilt of the state.
+
+In order to focus on total votes yet to be counted, we also made the decision to use hexagon tiles to represent states instead of their typical border, so every state was on the same scale.
+"""
+
+[sections.home2]
+type = "panel"
+imageSrc = "/assets/portfolio/dfp-national-partisan.png"
+imageAlt = "Screenshot of a website displaying presidential election night results across the country"
+markdown = """\
+The website still did allow users to click into seeing partisan result breakdowns, and we supported realtime election data from the Associated Press for all federal elections, including every congressional race (even broken down by county).
+
+Our electoral votes counter, unlike most election reporting websites, was placed towards the bottom of the page. Our website made no predictions, and clearly marked states that had not been "called" yet. We also had the ability to override a call if it seemed far too premature.
+
+To help breakdown some of this information, we had light content pages to explain various topics around the election process and ballot counting.
+"""
+
+[sections.state1]
+type = "panel"
+imageSrc = "/assets/portfolio/dfp-ny.png"
+imageAlt = "Screenshot of a website displaying presidential election night results for New York state"
+markdown = """\
+In addition to displaying raw vote totals, we also kept a historical graph of how many votes were being counted over time. We wanted to visualize that there might be an initial surge of same day votes counted, followed by a slow steady trickle of mail-in ballots counted.
+
+All of the data viz for this project was designed and built by me from scratch using React.
+"""

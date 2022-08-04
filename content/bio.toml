@@ -1,0 +1,23 @@
+title = "About Joe"
+template = "content"
+
+[sections]
+
+[sections.hero]
+type = "cover"
+coverSrc = "/assets/avatar-medium-2022.jpg"
+coverAlt = "Headshot photo of Joe on a dark background"
+
+
+[sections.intro]
+type = "markdown"
+markdown = """\
+Joe is a self-taught software engineer based out of NYC, and leverages his skills in technology to promote progressive causes. He is currently working as a Senior Software Engineer at [Arcadia](https://www.arcadia.com), which is working to connect consumers around the country to community solar programs and make energy utility data available as an API in order to help combat climate change. In the past, Joe has worked for for political campaigns as a technologist, and has worked for politicians such as Senator Elizabeth Warren and Senator Ed Markey. In his spare time, you can find Joe playing softball at Central Park, or tweeting about how much he dislikes web3.
+
+### Around The Internet
+- [Blockchain lottery sells NFTs for legal defense in suit that cuts to the core of DeFi](https://www.axios.com/2022/05/27/blockchain-lottery-nfts-legal-pooltogether)
+- [Who Should Be President? | Middle Ground: Election 2020](https://www.youtube.com/watch?v=Iv_RIjfO0PE)
+- [404 Fire Alarm Not Found](https://www.youtube.com/watch?v=42B4AAPd49I)
+- [Server Side Rendering React In Realtime Without Melting Your Servers](https://dev.to/itsjoekent/server-side-rendering-react-in-realtime-without-melting-your-servers-21ej)
+- [How ElizabethWarren.com redefined traditional campaign websites](https://medium.com/@itsjoekent/how-elizabethwarren-com-redefined-traditional-campaign-websites-fba625874e27)
+"""

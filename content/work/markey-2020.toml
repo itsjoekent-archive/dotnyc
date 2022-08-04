@@ -1,0 +1,34 @@
+title = "Ed Markey 2020 Democratic Primary"
+subtitle = "Created a custom in-house relational organizing tool and mail-in ballot website that helped propel the campaign to victory."
+
+template = "content"
+
+[sections]
+
+[sections.dropoff1]
+type = "cover"
+coverSrc = "/assets/portfolio/dropbox-homepage.png"
+coverAlt = "Screenshot of a website that is asking voters to enter their address to find their election polling location"
+
+[sections.dropoff2]
+type = "panel"
+imageSrc = "/assets/portfolio/dropbox-town.png"
+imageAlt = "Screenshot of a website that is showing voters how to vote by mail in their community"
+markdown = """\
+I worked with Ed Markey's senate campaign as a freelancer to create a custom website for looking up the nearest ballot dropoff site in Massachusetts.
+
+In the 2020 election cycle, states were unprepared for the surge of mail-in ballots, and Massachusetts had no statewide public website to find locations you could drop off your mail-in ballot.
+"""
+
+[sections.relational1]
+type = "markdown"
+markdown = """\
+Prior to building the ballot dropoff website, I worked with the campaign to design and build a breakthrough custom relational organizing tool that allowing anyone interested in becoming involved with the Markey Campaign to create and distribute their own supporter page. At the conclusion of the campaign, hundreds of supporter pages identifying thousands of supporters had been created.
+
+[Read more about the Ed Markey's Relational-First Organizing Approach](https://medium.com/@emma.h.friend/ed-markeys-relational-first-organizing-approach-137bbfc4852), and how this tool helped the campaign garner over 17,000 voter contacts.
+"""
+
+[sections.relational2]
+type = "cover"
+coverSrc = "/assets/portfolio/ed-admin.png"
+coverAlt = "Screenshot of the relational organizing tool, showing the volunteer dashboard"

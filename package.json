@@ -1,52 +1,32 @@
 {
-  "private": true,
-  "dependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "autoprefixer": "^9.7.5",
-    "aws-sdk": "^2.814.0",
-    "babel-loader": "^8.1.0",
-    "copy-to-clipboard": "^3.3.1",
-    "css-loader": "^3.4.2",
-    "cssnano": "^4.1.10",
-    "dotenv": "^8.2.0",
-    "download": "^8.0.0",
-    "extract-zip": "^2.0.1",
-    "file-loader": "^6.0.0",
-    "markdown-it": "^10.0.0",
-    "markdown-it-anchor": "^5.2.7",
-    "mini-css-extract-plugin": "^0.9.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^7.0.27",
-    "postcss-loader": "^3.0.0",
-    "precss": "^4.0.0",
-    "react-helmet": "^5.2.1",
-    "request": "^2.88.2",
-    "serve": "^11.3.2",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  },
   "scripts": {
-    "build:html": "PRODUCTION=true node src/engine/build.js",
-    "build:html:local": "DEVELOPMENT=true node src/engine/build.js",
-    "build:webpack": "PRODUCTION=true webpack",
-    "build": "npm-run-all media build:*",
-    "media": "node src/engine/media.js",
-    "start": "npm-run-all --parallel start:*",
-    "start:serve": "serve www",
-    "start:webpack": "webpack --watch",
-    "start:rebuild": "node src/engine/watcher.js"
+    "start": "npx parcel --port 5000 src/index.html",
+    "build": "npx parcel build src/index.html",
+    "media": "node bin/media.js",
+    "content": "cp -R content dist",
+    "deploy": "npm run build && npm run media && npm run content && node bin/deploy"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "@parcel/transformer-css": {
+    "drafts": {
+      "nesting": true
+    }
+  },
+  "devDependencies": {
+    "@parcel/transformer-toml": "^2.6.1",
+    "parcel": "2.7",
+    "prettier": "^2.7.1",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1159.0",
+    "copy-to-clipboard": "^3.3.1",
+    "dotenv": "^16.0.1",
+    "download": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.3",
+    "toml": "^3.0.0",
+    "wouter": "^2.8.0-alpha.2"
   }
 }

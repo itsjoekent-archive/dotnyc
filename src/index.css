@@ -1,0 +1,10 @@
+:root {
+  --black: #000;
+  --accent: #023e8a;
+  --medium-gray: #6B7786;
+  --white: #FFFFFF;
+}
+
+* {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
