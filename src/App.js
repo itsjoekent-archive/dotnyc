@@ -64,6 +64,7 @@ export function App(props) {
               <Route path="/" component={Homepage} />
               <Route path="/bio" component={Content} />
               <Route path="/work/:slug" component={Content} />
+              <Route path="/blog/:slug" component={Content} />
             </Switch>
           </React.Suspense>
         </ContentContext.Provider>
