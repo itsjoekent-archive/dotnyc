@@ -34,7 +34,7 @@
   max-width: 640px;
   margin-bottom: 72px;
 
-  @media (min-width: 700px) {
+  @media (min-width: 1200px) {
     margin-bottom: 96px;
   }
 
@@ -63,7 +63,7 @@
 .ct-cover {
   width: 100%;
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     max-width: 70vw;
   }
 }

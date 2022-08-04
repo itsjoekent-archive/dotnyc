@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-toml": "^2.6.1",
-    "parcel": "^2.6.1",
+    "parcel": "2.7",
     "prettier": "^2.7.1",
     "process": "^0.11.10"
   },

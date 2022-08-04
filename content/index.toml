@@ -6,7 +6,7 @@ template = "homepage"
 [sections.bio]
 header = "hello!"
 headerElementType = "h1"
-subheader = "I’m Joe, a self-taught software engineer based out of NYC, and I leverage my skills in technology to promote progressive causes. In my spare time, you can find me playing softball at Central Park, or tweeting about how much I dislike web3. You can check out some of my work below."
+subheader = "I’m Joe, a self-taught software engineer based out of NYC, and I leverage my skills in technology to promote progressive causes. You can check out some of my work below."
 imageSrc = "/assets/headshot.jpg"
 imageAlt = "Photo of Joe with a bright orange background"
 linkLabel = "Read my bio"

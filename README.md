@@ -7,8 +7,7 @@ my small corner of the internet.
 ```sh
 $ nvm use
 $ npm install
+$ cp .env.example .env
+$ npm run deploy
 $ npm start
 ```
-
-- Footer
-- Homepage decoration
