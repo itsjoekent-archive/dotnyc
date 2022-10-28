@@ -6,7 +6,6 @@ import loadContent from './utils/loadContent';
 
 const Content = React.lazy(() => import('./pages/Content'));
 const Homepage = React.lazy(() => import('./pages/Homepage'));
-const Work = React.lazy(() => import('./pages/Work'));
 
 const _404 = '404';
 
@@ -39,7 +38,7 @@ export function App(props) {
       }
     }
 
-    if (!activeContent) {
+    if (!activeContent || !Object.keys(activeContent).length) {
       fetch();
     }
 

@@ -1,0 +1,88 @@
+title = "Rewriting our header animations to be more accessible"
+template = "content"
+
+[sections]
+
+[sections.content]
+type = "markdown"
+markdown = """\
+Have you ever opened a code file and audibly gasped?
+
+That was me, when I looked under the hood for the first time at the code library that powered the animations of headers across our marketing website. As I dug deeper, I realized the code behind the animations wasn’t even committed to the library in the official Github repository, for any version in its published history. It was just a random source file buried in a zipped folder.
+
+![Several lines of code in a large loop that are very long and hard to comprehend](/assets/rewriting-arcadia-header-animations/image1.png)
+
+If the only problem with these 600 lines of code was that they were incomprehensible for developers to read, we could probably just sweep them back under the rug where we found them. Unfortunately, this code has a significant flaw: it turns all of our header tags into div tags.
+
+![The Chrome Developer Tools highlighting our header element and the HTML tags it uses](/assets/rewriting-arcadia-header-animations/image3.png)
+
+For a sighted user, this makes relatively no difference, since the headers visually look like headers even if they’re div tags. But for anyone relying on a screen reader, it makes our marketing website unusable. When testing with the built-in Apple screen reader VoiceOver, we found it could not reliably identify or parse out the headers, and you could not navigate through them.
+
+This code also has a very negative impact on our website performance. On page load, we found this animation code used significant CPU cycles, which delayed the React hydration time. The blocks marked in red below are all stemming from this animation code.
+
+![A screenshot of the Chrome Developer Tools capturing our website performance, and highlighting the regions that are slow because of our animation performance](/assets/rewriting-arcadia-header-animations/image7.png)
+
+As we tackle a site rebuild for a multi-brand integration of Arcadia, Genability, and Urjanet, we decided now is a good time to invest in exploring the performance and accessibility of our animations, which necessitated a rebuild of this animation.
+
+## Understanding the visual requirements
+
+The header animation used across the marketing site depicts two duplicate layers of text sliding in with different shades of green.
+
+![Three lines of green text which say "We're hear to help energy clean up it's act", sliding upwards into view](/assets/rewriting-arcadia-header-animations/image10.gif)
+
+Typically when you translate an element upwards, the entire element is moving at once. But this animation specifically calls for each individual line to translate up on its own, and only be visible once it has passed its own bottom border.
+
+![A visual representation of the grid lines our animation is using to depict where the text gets clipped](/assets/rewriting-arcadia-header-animations/image12.png)
+
+If you tried to recreate this animation by just translating the entire header element with a CSS keyframe animation, you’ll see a major issue. All of the lines are moving together, not as individual lines.
+
+![A visual demonstration of an incorrect animation applied to the header, where all of the lines are as a single element.](/assets/rewriting-arcadia-header-animations/image8.gif)
+
+The other challenge we wanted to solve is actually constraining the header to our website grid.
+
+In our Figma designs, we set this header element from track 2 to track 8 in our 12 column grid.
+
+![A screenshot of our website mockup, showing 12 grid columns highlighted in red](/assets/rewriting-arcadia-header-animations/image11.png)
+
+But our existing animation code disregards the grid, and spans the entire container.
+
+![A screenshot of our live website, highlighting the header element and our 12 grid columns. The header element border spans across the screen.](/assets/rewriting-arcadia-header-animations/image2.png)
+
+To add further maintenance pain, the line breaks are actually determined by the content author in the CMS. At one point, this led to editors using special html entities, such as [&nbsp](https://en.wikipedia.org/wiki/Non-breaking_space), to control line breaks, which inadvertently created [layout shifts](https://web.dev/cls/) on page load specifically for iOS devices _([imagine how fun this was to debug](https://github.com/prismicio/prismic-react/issues/116))_.
+
+To stay consistent with our designs and remove the possibility of content entry mistakes, we want to ensure that our text components abide by the boundaries of the parent container or grid that they’re placed in.
+
+## Rebuilding the animation
+
+Given the 600 lines of spaghetti code, there wasn’t a very exciting path forward to fixing that code to address all of these problems, so we decided to start from scratch. Here’s how we did it.
+
+First, we had to figure out how to break the string of text into individual lines that fit in the parent HTML container. Typically, a web browser does this for you, but we need to compute this information ourselves before the elements get rendered.
+
+To solve this, we used the [measureText function of the Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText), and rendered text on an HTML Canvas outside the viewport not visible to the user. The measureText function allows us to get a browser accurate depiction of the width and height of the rendered text using our impact font.
+
+With this information, we’re able to recursively rerender the text, trimming off words each iteration, until it fits within a given max width value. As we trim a word, we append it to the front of the next line. We keep doing this until every line fits the max width.
+
+![A visual diagram of how we break the text into multiple lines. On the left is the first line getting trimmed until it fits, on the right is the second line being constructed.](/assets/rewriting-arcadia-header-animations/image4.png)
+
+And this is the crux of the Typescript behind the recursive logic.
+
+![The new render logic code](/assets/rewriting-arcadia-header-animations/image6.png)
+
+There are a number of edge cases that this function does not handle (for example, italics), but we were fine with shedding some functionality in favor of more maintainable code.
+
+Before running this recursive function, we set up the canvas width to match the width of the parent element, and we store the result in a memoized React state to avoid unnecessary future computations.
+
+With the lines calculated, our component can map each of them into their own block level element. We wrap all of the lines within a header tag (h1, h2, etc) specified by a component prop, and apply an `aria-label` prop to the header with the full, uninterrupted string of text, along with an `aria-disabled` prop on the individual lines of text (which are `span` elements). In testing with Apple VoiceOver, we found this to be a successful way of providing accurate content to the user without duplicating any information, while also enabling them to navigate the page by headers.
+
+Next, we need to actually animate the dang thing! With the power of CSS animations, this was super simple. (Note: This code is using [styled-components](https://www.npmjs.com/package/styled-components), but you do not need Styled Components to do this!)
+
+You might notice the usage of [“prefers reduced motion” media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion), this is to ensure that folks who prefer less visual movement, [for example people with vestibular motion disorders](https://web.dev/prefers-reduced-motion/#motion-triggered-vestibular-spectrum-disorders), are not hit with an animation that isn’t absolutely necessary to understand the content.
+
+And after all that, this is what the component API finally shapes up to look like,
+
+![The new render logic code](/assets/rewriting-arcadia-header-animations/image5.png)
+
+In order to compute the max width of the parent element, we need to inject a [React ref](https://reactjs.org/docs/refs-and-the-dom.html) into the parent element so we can run the [getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) function on it. To cleanly pass the ref from the parent component into the child component, we use a pattern [of treating the children of the component as a function](https://reactpatterns.js.org/docs/function-as-child-component/), and then we pass the rendered title element as a second argument you can just drop into your containing element. Super easy and flexible!
+
+This new component is designed to be fully accessible and work for all of our users, regardless of how they consume our marketing site, along with being much simpler for internal designers and developers at Arcadia to maintain.
+"""

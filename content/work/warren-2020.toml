@@ -15,7 +15,7 @@ type = "markdown"
 markdown = """\
 I quietly joined the Elizabeth Warren campaign in December 2019, just before the FEC paperwork was officially filed. For the next year, I worked tirelessly as the tech lead of the frontend engineering team to collaborate with people across the campaign, ranging from design to policy to organizers, to build a website that helped serve the campaign.
 
-Below is a small sample of projects I played a large part in, from ideation to implementation. You can find a more holistic post-mortem [here](https://joekent.nyc/how-elizabeth-warren-dot-com-redefined-traditional-campaign-websites/), or a deep dive into our website architecture [here](https://joekent.nyc/ssr-react-realtime/).
+Below is a small sample of projects I played a large part in, from ideation to implementation. You can find a more holistic post-mortem [here](https://medium.com/@itsjoekent/how-elizabethwarren-com-redefined-traditional-campaign-websites-fba625874e27), or a deep dive into our website architecture [here](https://dev.to/itsjoekent/server-side-rendering-react-in-realtime-without-melting-your-servers-21ej).
 """
 
 [sections.calculatorsVideo]
