@@ -1,10 +1,20 @@
-<div class="homepage" style="
+<div
+  class="homepage"
+  style="
   --background-image-vertical: {{#media}}{{backgroundImageVerticalSrc}}{{/media}}
   --background-image-horizontal: {{#media}}{{backgroundImageHorizontalSrc}}{{/media}}
-  ">
+  "
+>
   <div class="card">
-    <div class="card-cover" style="--background-image: {{#media}}{{cardBannerSrc}}{{/media}}">
-      <img class="card-avatar" alt="{{avatarAltText}}" src="{{#media}}{{avatarSrc}}{{/media}}" />
+    <div
+      class="card-cover"
+      style="--background-image: {{#media}}{{cardBannerSrc}}{{/media}}"
+    >
+      <img
+        class="card-avatar"
+        alt="{{avatarAltText}}"
+        src="{{#media}}{{avatarSrc}}{{/media}}"
+      />
     </div>
     <div class="card-interior">
       <div class="card-contact-row">
@@ -26,9 +36,7 @@
           <button class="card-bio-toggle --active" data-bio-button="short">
             Short
           </button>
-          <button class="card-bio-toggle" data-bio-button="long">
-            Long
-          </button>
+          <button class="card-bio-toggle" data-bio-button="long">Long</button>
           <button class="card-bio-toggle" data-bio-button="speaker">
             Speaker
           </button>
@@ -41,7 +49,9 @@
         </div>
         <div class="card-footer-links markdown">
           {{#links}}
-            <a href="{{href}}" target="_blank" rel="noopener noreferrer">{{label}}</a>
+          <a href="{{href}}" target="_blank" rel="noopener noreferrer"
+            >{{label}}</a
+          >
           {{/links}}
         </div>
       </div>

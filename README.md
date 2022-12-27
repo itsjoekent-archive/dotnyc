@@ -28,6 +28,10 @@ Storing videos in Git repositories isn't ideal, so I also want this system to su
 
 This website is tiny, it has no dynamic content. It does not need serverless functions or a constantly running Node express server. Everything can be pregenerated at build time.
 
+_Why not use a newer trendier build tool, such as [Vite](https://vitejs.dev/), instead of [Webpack](https://webpack.js.org/?_
+
+[Have you read all of the steps involved to get server side rendering working????](https://vitejs.dev/guide/ssr.html). This is a tiny website. It does not need all of this complication.
+
 ## How It Works
 
 1. Parses [TOML](https://toml.io) files in the `/content` directory.

@@ -2,8 +2,7 @@
   "scripts": {
     "start": "NODE_ENV=development npx ts-node server/index.ts",
     "build": "NODE_ENV=production npx ts-node server/index.ts",
-    "media": "node bin/media",
-    "deploy": "npm run build && npm run media"
+    "prettier": "prettier --write ."
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
@@ -12,6 +11,7 @@
     "@types/node": "^18.11.18",
     "@types/showdown": "^2.0.0",
     "aws-sdk": "^2.1282.0",
+    "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "download": "^8.0.0",
     "express": "^4.18.2",
@@ -19,7 +19,8 @@
     "prettier": "^2.7.1",
     "showdown": "^2.1.0",
     "toml": "^3.0.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "webpack": "^5.75.0"
   },
   "dependencies": {
     "copy-to-clipboard": "^3.3.1"

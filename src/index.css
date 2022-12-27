@@ -1,8 +1,8 @@
 :root {
   --black: #000;
   --accent: #023e8a;
-  --medium-gray: #6B7786;
-  --white: #FFFFFF;
+  --medium-gray: #6b7786;
+  --white: #ffffff;
 }
 
 * {
@@ -12,7 +12,7 @@
 .homepage {
   background-image: var(--background-image-vertical);
 
-  @media () {
+  @media() {
     background-image: var(--background-image-horizontal);
   }
 }

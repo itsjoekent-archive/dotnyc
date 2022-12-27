@@ -10,7 +10,9 @@ function removeTrailingSlash(input) {
 
 async function getTomlFiles(directory) {
   const files = await fs.readdir(directory);
-  let tomlFiles = files.filter((file) => file.endsWith('.toml')).map((file) => path.join(directory, file));
+  let tomlFiles = files
+    .filter((file) => file.endsWith('.toml'))
+    .map((file) => path.join(directory, file));
 
   for (const file of files) {
     if (!file.includes('.')) {
@@ -23,9 +25,14 @@ async function getTomlFiles(directory) {
 }
 
 (async function () {
-  const indexHtml = await fs.readFile(path.join(process.cwd(), './dist/index.html'), 'utf8');
-  const pageContentFiles = await getTomlFiles(path.join(process.cwd(), './content'));
-  
+  const indexHtml = await fs.readFile(
+    path.join(process.cwd(), './dist/index.html'),
+    'utf8'
+  );
+  const pageContentFiles = await getTomlFiles(
+    path.join(process.cwd(), './content')
+  );
+
   for (const pageContentFilePath of pageContentFiles) {
     const pageToml = await fs.readFile(pageContentFilePath, 'utf8');
     const pageData = toml.parse(pageToml);
@@ -40,7 +47,7 @@ async function getTomlFiles(directory) {
     );
 
     console.log(`Building ${realPath}`);
-    
+
     const realHtml = indexHtml
       .replace(
         `window.PAGE_DATA={};`,
@@ -48,7 +55,9 @@ async function getTomlFiles(directory) {
       )
       .replace(
         '<title>placeholder</title>',
-        `<title>${pageData.title ? `${pageData.title} | Joe Kent` : 'Joe Kent'}</title>`
+        `<title>${
+          pageData.title ? `${pageData.title} | Joe Kent` : 'Joe Kent'
+        }</title>`
       );
 
     const distDirectory = path.join(process.cwd(), '/dist', realPath);

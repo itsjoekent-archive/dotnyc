@@ -13,7 +13,9 @@ export default function Navigation() {
 
   return (
     <nav className="navigation">
-      {location === '/' ? <span aria-disabled /> : (
+      {location === '/' ? (
+        <span aria-disabled />
+      ) : (
         <Link className="navigation__home" href="/">
           {'< Back home'}
         </Link>

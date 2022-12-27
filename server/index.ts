@@ -17,11 +17,21 @@ async function readAllContent(): Promise<Content.ContentBase[]> {
   const allContent: Content.ContentBase[] = [];
 
   for (const contentFileName of contentFileNames) {
-    const contentFileBuffer = await fs.readFile(path.join(contentDirectory, contentFileName));
+    const contentFileBuffer = await fs.readFile(
+      path.join(contentDirectory, contentFileName)
+    );
     const parsedContent = toml.parse(contentFileBuffer.toString('utf8'));
 
-    if (!Content.getEnumKeys(Content.ContentBaseRequiredKeys).every((key) => !!parsedContent[key])) {
-      throw new Error(`${contentFileName} is missing a one of the required keys (${Object.keys(Content.ContentBaseRequiredKeys).join(', ')})`);
+    if (
+      !Content.getEnumKeys(Content.ContentBaseRequiredKeys).every(
+        (key) => !!parsedContent[key]
+      )
+    ) {
+      throw new Error(
+        `${contentFileName} is missing a one of the required keys (${Object.keys(
+          Content.ContentBaseRequiredKeys
+        ).join(', ')})`
+      );
     }
 
     allContent.push(parsedContent as Content.ContentBase);
@@ -30,33 +40,49 @@ async function readAllContent(): Promise<Content.ContentBase[]> {
   return allContent;
 }
 
-async function renderTemplate(content: Content.ContentWithTemplate | Content.ContentForIndex): Promise<string> {
-  const templateBuffer = await fs.readFile(path.join(process.cwd(), 'templates', `${content.template}.html`));
+async function renderTemplate(
+  content: Content.ContentWithTemplate | Content.ContentForIndex
+): Promise<string> {
+  const templateBuffer = await fs.readFile(
+    path.join(process.cwd(), 'templates', `${content.template}.html`)
+  );
   const template = templateBuffer.toString('utf8');
 
   const templateFunctions = {
-    'markdown': function media() {
+    markdown: function media() {
       return function _media(markup: string, render: MustacheRenderFunction) {
         return markdownConverter.makeHtml(render(markup));
-      }
+      };
     },
-    'media': function media() {
-      return function _media(mediaFile: string, render: MustacheRenderFunction) {
+    media: function media() {
+      return function _media(
+        mediaFile: string,
+        render: MustacheRenderFunction
+      ) {
         return process.env.NODE_ENV === 'development'
           ? `https://itsjoekent.s3.amazonaws.com/${render(mediaFile)}`
           : `/dist/${render(mediaFile)}`;
-      }
+      };
     },
   };
 
-  const templateData = typeof content.templateData === 'string' ? {} : content.templateData;
-  const renderedTemplate = mustache.render(template, { ...content, ...templateData, ...templateFunctions });
-  
+  const templateData =
+    typeof content.templateData === 'string' ? {} : content.templateData;
+  const renderedTemplate = mustache.render(template, {
+    ...content,
+    ...templateData,
+    ...templateFunctions,
+  });
+
   return renderedTemplate;
 }
 
 function trimLastSlash(path: string) {
-  return path === '/' ? path : (path.endsWith('/') ? path.substring(0, path.length - 1) : path);
+  return path === '/'
+    ? path
+    : path.endsWith('/')
+    ? path.substring(0, path.length - 1)
+    : path;
 }
 
 (() => {
@@ -67,14 +93,20 @@ function trimLastSlash(path: string) {
     app.get('/*', async (request, response) => {
       try {
         const content = await readAllContent();
-        const match: Content.ContentBase | undefined = content.find((compare) => compare.path === trimLastSlash(request.path));
+        const match: Content.ContentBase | undefined = content.find(
+          (compare) => compare.path === trimLastSlash(request.path)
+        );
 
         if (!match) {
           return response.status(404).send('not found');
         }
 
         const templateHtml = await renderTemplate(match);
-        const html = await renderTemplate({ ...match, template: 'index', templateHtml });
+        const html = await renderTemplate({
+          ...match,
+          template: 'index',
+          templateHtml,
+        });
 
         response.set('content-type', 'text/html').send(html);
       } catch (error) {
