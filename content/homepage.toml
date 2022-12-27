@@ -1,0 +1,38 @@
+path = "/"
+title = "Joe Kent"
+metaDescription = ""
+metaPhoto = "banner-large.png"
+template = "homepage"
+
+[templateData]
+avatarSrc = "avatar-small.png"
+avatarAltText = "Headshot photo of Joe Kent"
+backgroundImageVerticalSrc = ""
+backgroundImageHorizontalSrc = ""
+cardBannerSrc = "banner-small.png"
+contactEmail = "hey@joekent.nyc"
+contactText = "Contact me"
+links = [
+  { label = "Twitter", value = "https://twitter.com/itsjoekent" },
+  { label = "GitHub", value = "https://github.com/itsjoekent" },
+  { label = "GitHub", value = "https://www.linkedin.com/in/joe-kent-63170077/" },
+  { label = "TikTok", value = "https://www.tiktok.com/@itsjoekent" }
+]
+location = "New York, NY"
+longBio = """\
+Oh hey! I’m Joe, I taught myself to code growing up modding games like Minecraft and programming robots for FIRST Robotics. In high school I started working as an intern at DoSomething.org which kicked my career in using “tech for good”. 
+
+I wound up building ElizabethWarren.com for Senator Warren’s 2020 presidential campaign, and building tech for a number of other political efforts including Senator Markey’s 2020 campaign, and Data For Progress. I’ve also done tech work in the political space for Blue State, Invest In America, Let America Vote, the 2020 Georgia Senate Runoffs, Vote From Home, and When We All Vote.
+
+After spending so much time building tech for campaigns, I decided to try building a startup so I could scale the impact I could be having. The startup didn’t work out in the end, but you can read about what I ended up building (and checkout the code).
+
+I now work as a Senior Software Engineer at Arcadia, a climate tech company that connects people to community solar programs, and exposes the energy grid as an API for other companies to build climate aware products.
+
+Some other fun facts,
+- I’m not a fan of web3/crypto
+- I participated in a 2020 presidential debate on the YouTube channel Jubilee
+- I f*ing hate pigeons
+- Yankees & Nets fan
+"""
+pronouns = "he/him/his"
+shortBio = "Hello! I’m Joe, a self taught coder working at [Arcadia](https://www.arcadia.com) as a Senior Software Engineer."

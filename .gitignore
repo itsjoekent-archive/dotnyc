@@ -26,8 +26,6 @@ yarn-error.log*
 
 # build
 /www
-.parcel-cache
-/dist
 
-# temp local copy of old branch for reference
-/old
+# vscode
+/.vscode

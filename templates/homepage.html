@@ -1,0 +1,50 @@
+<div class="homepage" style="
+  --background-image-vertical: {{#media}}{{backgroundImageVerticalSrc}}{{/media}}
+  --background-image-horizontal: {{#media}}{{backgroundImageHorizontalSrc}}{{/media}}
+  ">
+  <div class="card">
+    <div class="card-cover" style="--background-image: {{#media}}{{cardBannerSrc}}{{/media}}">
+      <img class="card-avatar" alt="{{avatarAltText}}" src="{{#media}}{{avatarSrc}}{{/media}}" />
+    </div>
+    <div class="card-interior">
+      <div class="card-contact-row">
+        <button class="card-contact-button" data-email="{{contactEmail}}">
+          {{contactText}}
+        </button>
+      </div>
+      <div class="card-bio-section">
+        <div class="markdown card-bio --active" data-bio-text="short">
+          {{#markdown}}{{shortBio}}{{/markdown}}
+        </div>
+        <div class="markdown card-bio" data-bio-text="long">
+          {{#markdown}}{{longBio}}{{/markdown}}
+        </div>
+        <div class="markdown card-bio" data-bio-text="speaker">
+          {{#markdown}}{{speakerBio}}{{/markdown}}
+        </div>
+        <div class="card-bio-toggle-row">
+          <button class="card-bio-toggle --active" data-bio-button="short">
+            Short
+          </button>
+          <button class="card-bio-toggle" data-bio-button="long">
+            Long
+          </button>
+          <button class="card-bio-toggle" data-bio-button="speaker">
+            Speaker
+          </button>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-attributes">
+          <p class="card-attribute-location">📍 {{location}}</p>
+          <p class="card-attribute-pronouns">{{pronouns}}</p>
+        </div>
+        <div class="card-footer-links markdown">
+          {{#links}}
+            <a href="{{href}}" target="_blank" rel="noopener noreferrer">{{label}}</a>
+          {{/links}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
