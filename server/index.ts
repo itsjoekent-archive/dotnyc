@@ -54,7 +54,7 @@ async function renderTemplate(
 
   function mediaLambda() {
     function _mediaLambda(mediaFile: string, render: MustacheLambdaFunction) {
-      return `${process.env.DOTNYC_BUCKET_PUBLIC_URL}/${render(mediaFile)}`;
+      return `https://cdn.joekent.nyc/${render(mediaFile)}`;
     }
 
     return _mediaLambda;
