@@ -15,7 +15,8 @@ contactText = "Contact me"
 links = [
   { label = "Twitter", href = "https://twitter.com/itsjoekent" },
   { label = "GitHub", href = "https://github.com/itsjoekent" },
-  { label = "GitHub", href = "https://www.linkedin.com/in/joe-kent-63170077/" },
+  { label = "DEV Community", href = "https://dev.to/itsjoekent" },
+  { label = "Linkedin", href = "https://www.linkedin.com/in/joe-kent-63170077/" },
   { label = "TikTok", href = "https://www.tiktok.com/@itsjoekent" }
 ]
 location = "New York, NY"
