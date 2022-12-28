@@ -1,13 +1,15 @@
 <div class="blog">
-  <nav class="page-nav">
-
-  </nav>
+  <nav class="page-nav"></nav>
   <main class="blog-column">
     <header class="blog-header">
       <h1 class="blog-title">{{title}}</h1>
       <p class="blog-subtitle">{{metaDescription}}</p>
     </header>
-    <img class="blog-cover" src="{{#media}}{{coverImageSrc}}{{/media}}" alt="{{coverImageAlt}}" />
+    <img
+      class="blog-cover"
+      src="{{#media}}{{coverImageSrc}}{{/media}}"
+      alt="{{coverImageAlt}}"
+    />
     <section class="markdown --with-margins">
       {{#markdown}}{{content}}{{/markdown}}
     </section>

@@ -14,7 +14,8 @@ const bioText = document.querySelectorAll('[data-bio-format]');
 copyButtons.forEach((element) => {
   element.addEventListener('click', () => {
     const copyValue = element.getAttribute('data-copy') || '';
-    const copyMessage = element.getAttribute('data-copy-message') || 'Copied to clipboard';
+    const copyMessage =
+      element.getAttribute('data-copy-message') || 'Copied to clipboard';
     navigator.clipboard.writeText(copyValue).then(() => alert(copyMessage));
   });
 });

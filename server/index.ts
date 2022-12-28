@@ -62,7 +62,7 @@ async function renderTemplate(
 
   function markdownLambda() {
     function _markdownLambda(markup: string, render: MustacheLambdaFunction) {
-      // TOML has dumb character escape rules. 
+      // TOML has dumb character escape rules.
       // And mustache doesn't run lambda's on replace variable values.
       // This escapes the HTML entities from the TOML multi-line string,
       // and also fixes mustache running Lambdas against nested variable values.
