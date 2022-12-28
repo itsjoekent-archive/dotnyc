@@ -1,8 +1,5 @@
 import fs from 'fs/promises';
 import path from 'path';
-import AWS from 'aws-sdk';
-import dotenv from 'dotenv';
-import download from 'download';
 import express from 'express';
 import he from 'he';
 import mustache from 'mustache';
@@ -17,13 +14,6 @@ type MustacheLambdaFunction = (input: string) => string;
 const markdown = new MarkdownIt({
   html: true,
   linkify: true,
-});
-
-const s3 = new AWS.S3({
-  endpoint: `https://${process.env.DOTNYC_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
-  accessKeyId: process.env.DOTNYC_R2_ACCESS_KEY_ID,
-  secretAccessKey: process.env.DOTNYC_R2_SECRET_ACCESS_KEY,
-  signatureVersion: 'v4',
 });
 
 async function readAllContent(): Promise<Content.ContentBase[]> {
@@ -66,9 +56,7 @@ async function renderTemplate(
 
   function mediaLambda() {
     function _mediaLambda(mediaFile: string, render: MustacheLambdaFunction) {
-      return process.env.NODE_ENV === 'development'
-        ? `${process.env.DOTNYC_BUCKET_PUBLIC_URL}/${render(mediaFile)}`
-        : `/dist/${render(mediaFile)}`;
+      return `${process.env.DOTNYC_BUCKET_PUBLIC_URL}/${render(mediaFile)}`;
     }
 
     return _mediaLambda;
