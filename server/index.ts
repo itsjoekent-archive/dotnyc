@@ -1,14 +1,18 @@
 import fs from 'fs/promises';
 import path from 'path';
 import express from 'express';
+import he from 'he';
 import mustache from 'mustache';
-import showdown from 'showdown';
+import MarkdownIt from 'markdown-it';
 import toml from 'toml';
 import * as Content from './content';
 
-type MustacheRenderFunction = (input: string) => string;
+type MustacheLambdaFunction = (input: string) => string;
 
-const markdownConverter = new showdown.Converter();
+const markdown = new MarkdownIt({
+  html: true,
+  linkify: true,
+});
 
 async function readAllContent(): Promise<Content.ContentBase[]> {
   const contentDirectory = path.join(process.cwd(), 'content');
@@ -48,26 +52,39 @@ async function renderTemplate(
   );
   const template = templateBuffer.toString('utf8');
 
+  function mediaLambda() {
+    function _mediaLambda(mediaFile: string, render: MustacheLambdaFunction) {
+      return process.env.NODE_ENV === 'development'
+        ? `https://itsjoekent.s3.amazonaws.com/media/${render(mediaFile)}`
+        : `/dist/${render(mediaFile)}`;
+    }
+
+    return _mediaLambda;
+  }
+
+  function markdownLambda() {
+    function _markdownLambda(markup: string, render: MustacheLambdaFunction) {
+      // TOML has dumb character escape rules. 
+      // And mustache doesn't run lambda's on replace variable values.
+      // This escapes the HTML entities from the TOML multi-line string,
+      // and also fixes mustache running Lambdas against nested variable values.
+      return markdown.render(render(he.decode(render(he.decode(markup)))), {
+        html: true,
+        linkify: true,
+      });
+    }
+
+    return _markdownLambda;
+  }
+
   const templateFunctions = {
-    markdown: function media() {
-      return function _media(markup: string, render: MustacheRenderFunction) {
-        return markdownConverter.makeHtml(render(markup));
-      };
-    },
-    media: function media() {
-      return function _media(
-        mediaFile: string,
-        render: MustacheRenderFunction
-      ) {
-        return process.env.NODE_ENV === 'development'
-          ? `https://itsjoekent.s3.amazonaws.com/${render(mediaFile)}`
-          : `/dist/${render(mediaFile)}`;
-      };
-    },
+    markdown: markdownLambda,
+    media: mediaLambda,
   };
 
   const templateData =
     typeof content.templateData === 'string' ? {} : content.templateData;
+
   const renderedTemplate = mustache.render(template, {
     ...content,
     ...templateData,
@@ -89,7 +106,7 @@ function trimLastSlash(path: string) {
   if (process.env.NODE_ENV === 'development') {
     const app = express();
 
-    app.use('/dist', express.static('dist'));
+    app.use('/dist', express.static('www/dist'));
     app.get('/*', async (request, response) => {
       try {
         const content = await readAllContent();

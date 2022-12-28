@@ -1,0 +1,20 @@
+path = "/work/markey-2020"
+title = "Ed Markey For Senate (2020)"
+metaDescription = "Created a custom in-house relational organizing tool and mail-in ballot website that helped propel the campaign to victory."
+metaImage = "markey.jpeg"
+template = "blog"
+
+[templateData]
+coverImageSrc = "markey.jpeg"
+coverAlt = "Senator Markey standing on stage in front of the American flag"
+content = """
+I worked with Ed Markey's senate campaign as a freelancer to create a custom website for looking up the nearest ballot dropoff site in Massachusetts.
+
+In the 2020 election cycle, states were unprepared for the surge of mail-in ballots, and Massachusetts had no statewide public website to find locations you could drop off your mail-in ballot.
+
+![Screenshot of a website that is showing voters how to vote by mail in their community]({{#media}}markey-dropbox-town.png{{/media}})
+
+Prior to building the ballot dropoff website, I worked with the campaign to design and build a breakthrough custom relational organizing tool that allowing anyone interested in becoming involved with the Markey Campaign to create and distribute their own supporter page. At the conclusion of the campaign, hundreds of supporter pages identifying thousands of supporters had been created.
+
+[Read more about the Ed Markey's Relational-First Organizing Approach](https://medium.com/@emma.h.friend/ed-markeys-relational-first-organizing-approach-137bbfc4852), and how this tool helped the campaign garner over 17,000 voter contacts.
+"""

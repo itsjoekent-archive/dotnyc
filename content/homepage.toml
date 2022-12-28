@@ -1,38 +1,44 @@
 path = "/"
 title = "Joe Kent"
-metaDescription = ""
-metaPhoto = "banner-large.png"
+metaDescription = "Oh hey! I’m Joe."
+metaImage = "banner-large.png"
 template = "homepage"
 
 [templateData]
-avatarSrc = "avatar-small.png"
+avatarSrc = "avatar.jpg"
 avatarAltText = "Headshot photo of Joe Kent"
-backgroundImageVerticalSrc = ""
-backgroundImageHorizontalSrc = ""
+backgroundImageVerticalSrc = "subway-map-vertical.png"
+backgroundImageHorizontalSrc = "subway-map-horizontal.png"
 cardBannerSrc = "banner-small.png"
 contactEmail = "hey@joekent.nyc"
 contactText = "Contact me"
 links = [
-  { label = "Twitter", value = "https://twitter.com/itsjoekent" },
-  { label = "GitHub", value = "https://github.com/itsjoekent" },
-  { label = "GitHub", value = "https://www.linkedin.com/in/joe-kent-63170077/" },
-  { label = "TikTok", value = "https://www.tiktok.com/@itsjoekent" }
+  { label = "Twitter", href = "https://twitter.com/itsjoekent" },
+  { label = "GitHub", href = "https://github.com/itsjoekent" },
+  { label = "GitHub", href = "https://www.linkedin.com/in/joe-kent-63170077/" },
+  { label = "TikTok", href = "https://www.tiktok.com/@itsjoekent" }
 ]
 location = "New York, NY"
 longBio = """\
 Oh hey! I’m Joe, I taught myself to code growing up modding games like Minecraft and programming robots for FIRST Robotics. In high school I started working as an intern at DoSomething.org which kicked my career in using “tech for good”. 
 
-I wound up building ElizabethWarren.com for Senator Warren’s 2020 presidential campaign, and building tech for a number of other political efforts including Senator Markey’s 2020 campaign, and Data For Progress. I’ve also done tech work in the political space for Blue State, Invest In America, Let America Vote, the 2020 Georgia Senate Runoffs, Vote From Home, and When We All Vote.
+I'm a Senior Software Engineer at [Arcadia](https://www.arcadia.com/), a climate tech company that connects people to [community solar programs](https://www.arcadia.com/for-homes), and [exposes the energy grid as an API](https://www.arcadia.com/arc) for other companies to build products that help fight climate change. I work on an internal infrastructure squad at Arcadia that maintains design systems, reusable frontend tooling, and helps set development standards for the company.
 
-After spending so much time building tech for campaigns, I decided to try building a startup so I could scale the impact I could be having. The startup didn’t work out in the end, but you can read about what I ended up building (and checkout the code).
+Before Arcadia, I was focused on building technology for political campaigns and non-profits. Notably, I wound up [building ElizabethWarren.com for Senator Warren’s 2020 presidential campaign](work/warren-2020), and building tech for a number of other political efforts including [Senator Markey’s 2020 campaign](/work/markey-2020), and [Data For Progress](/work/dfp-2020). I’ve also done tech work in the political space for Blue State, Invest In America, Let America Vote, the 2020 Georgia Senate Runoffs, Vote From Home, and When We All Vote.
 
-I now work as a Senior Software Engineer at Arcadia, a climate tech company that connects people to community solar programs, and exposes the energy grid as an API for other companies to build climate aware products.
+After spending so much time building tech for campaigns, I decided to try building a startup so I could scale the impact I could be having. The startup didn’t work out in the end, [but you can read about what I ended up building (_and checkout the code_)](/work/leftfield).
 
 Some other fun facts,
-- I’m not a fan of web3/crypto
-- I participated in a 2020 presidential debate on the YouTube channel Jubilee
+- [I’m not a fan of web3/crypto](https://www.axios.com/2022/05/27/blockchain-lottery-nfts-legal-pooltogether)
+- [I participated in a 2020 presidential debate on the YouTube channel Jubilee](https://www.youtube.com/watch?v=Iv_RIjfO0PE)
 - I f*ing hate pigeons
-- Yankees & Nets fan
+- Born & raised in Staten Island, but I don't know Pete Davidson
+- Yankees & Brooklyn Nets fan
 """
 pronouns = "he/him/his"
 shortBio = "Hello! I’m Joe, a self taught coder working at [Arcadia](https://www.arcadia.com) as a Senior Software Engineer."
+speakerBio = """\
+Joe loves to work at the intersection of technology and progressivism. He is currently a Senior Software Engineer at Arcadia, a tech company empowering energy innovators and consumers to fight the climate crisis. In the past, Joe has had the honor of building tech for a number of political campaigns, non-profits, and voting rights advocates, most notably Senator Elizabeth Warren and Senator Ed Markey. He is a native New Yorker and an avid fan of the Yankees & Brooklyn Nets.
+
+[Headshot Option 1](/dist/media/headshot-1.jpg), [Headshot Option 2](/dist/media/headshot-2.jpeg)
+"""
