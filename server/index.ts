@@ -7,8 +7,6 @@ import MarkdownIt from 'markdown-it';
 import toml from 'toml';
 import * as Content from './content';
 
-dotenv.config();
-
 type MustacheLambdaFunction = (input: string) => string;
 
 const markdown = new MarkdownIt({
@@ -150,24 +148,5 @@ function trimLastSlash(path: string) {
       await fs.mkdir(indexFolderPath, { recursive: true });
       await fs.writeFile(path.join(indexFolderPath, 'index.html'), html);
     }
-    
-    console.log('downloading media...');
-
-    const params = {
-      Bucket: 'dotnyc',
-    };
-
-    const { Contents: objects } = await s3.listObjects(params).promise();
-    if (!objects) return;
-
-    const mediaFolderPath = path.join(process.cwd(), 'www/dist/media');
-    await fs.mkdir(mediaFolderPath, { recursive: true });
-
-    await Promise.all(objects.map(({ Key: key }) => {
-      if (!key) return null;
-
-      const remotePath = `${process.env.DOTNYC_BUCKET_PUBLIC_URL}/${key}`;
-      return download(remotePath, mediaFolderPath);
-    }));
   }
 })();
