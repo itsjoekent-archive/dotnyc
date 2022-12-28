@@ -12,6 +12,13 @@ $ npm ci
 $ npm start
 ```
 
+**NOTE**: In order to run the production build command, you'll need to setup environment variables,
+
+```sh
+$ cp .env.example .env
+$ npm run build
+```
+
 ## Development Goals
 
 1. **Write HTML templates, CSS files, and JavaScript that uses native dom API's.**
