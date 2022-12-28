@@ -1,0 +1,61 @@
+<div
+  class="homepage"
+  style="
+  --background-image-vertical: url({{#media}}{{backgroundImageVerticalSrc}}{{/media}});
+  --background-image-horizontal: url({{#media}}{{backgroundImageHorizontalSrc}}{{/media}});
+  "
+>
+  <div class="card">
+    <div
+      class="card-cover"
+      style="--background-image: url({{#media}}{{cardBannerSrc}}{{/media}})"
+    >
+      <img
+        class="card-avatar"
+        alt="{{avatarAltText}}"
+        src="{{#media}}{{avatarSrc}}{{/media}}"
+      />
+    </div>
+    <div class="card-interior">
+      <h1 class="sr-only">{{title}}</h1>
+      <div class="card-contact-row">
+        <button class="primary-button card-contact-button" data-copy="{{contactEmail}}" data-copy-message="Copied email to clipboard!">
+          {{contactText}}
+        </button>
+      </div>
+      <div class="card-bio-section">
+        <div class="markdown --with-margins card-bio --active" data-bio-format="short">
+          {{#markdown}}{{shortBio}}{{/markdown}}
+        </div>
+        <div class="markdown --with-margins card-bio" data-bio-format="long">
+          {{#markdown}}{{longBio}}{{/markdown}}
+        </div>
+        <div class="markdown --with-margins card-bio" data-bio-format="speaker">
+          {{#markdown}}{{speakerBio}}{{/markdown}}
+        </div>
+        <div class="card-bio-toggle-row">
+          <button class="secondary-button card-bio-toggle --active" data-bio-button="short">
+            Short
+          </button>
+          <button class="secondary-button card-bio-toggle" data-bio-button="long">Long</button>
+          <button class="secondary-button card-bio-toggle" data-bio-button="speaker">
+            Speaker
+          </button>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-attributes markdown">
+          <p class="card-attribute-location">📍 {{location}}</p>
+          <p class="card-attribute-pronouns">{{pronouns}}</p>
+        </div>
+        <div class="card-footer-links markdown">
+          {{#links}}
+          <a href="{{href}}" target="_blank" rel="noopener noreferrer"
+            >{{label}}</a
+          >
+          {{/links}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
