@@ -1,5 +1,8 @@
 import fs from 'fs/promises';
 import path from 'path';
+import AWS from 'aws-sdk';
+import dotenv from 'dotenv';
+import download from 'download';
 import express from 'express';
 import he from 'he';
 import mustache from 'mustache';
@@ -7,11 +10,20 @@ import MarkdownIt from 'markdown-it';
 import toml from 'toml';
 import * as Content from './content';
 
+dotenv.config();
+
 type MustacheLambdaFunction = (input: string) => string;
 
 const markdown = new MarkdownIt({
   html: true,
   linkify: true,
+});
+
+const s3 = new AWS.S3({
+  endpoint: `https://${process.env.DOTNYC_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+  accessKeyId: process.env.DOTNYC_R2_ACCESS_KEY_ID,
+  secretAccessKey: process.env.DOTNYC_R2_SECRET_ACCESS_KEY,
+  signatureVersion: 'v4',
 });
 
 async function readAllContent(): Promise<Content.ContentBase[]> {
@@ -55,7 +67,7 @@ async function renderTemplate(
   function mediaLambda() {
     function _mediaLambda(mediaFile: string, render: MustacheLambdaFunction) {
       return process.env.NODE_ENV === 'development'
-        ? `https://itsjoekent.s3.amazonaws.com/media/${render(mediaFile)}`
+        ? `${process.env.DOTNYC_BUCKET_PUBLIC_URL}/${render(mediaFile)}`
         : `/dist/${render(mediaFile)}`;
     }
 
@@ -102,7 +114,7 @@ function trimLastSlash(path: string) {
     : path;
 }
 
-(() => {
+(async () => {
   if (process.env.NODE_ENV === 'development') {
     const app = express();
 
@@ -134,7 +146,40 @@ function trimLastSlash(path: string) {
 
     app.listen(5000, () => console.log(`Listening on port 5000`));
   } else {
-    // readAllContent
-    // renderPage => fs.writeFile('dist...')
+    console.log('generating pages...');
+
+    const allContent = await readAllContent();
+
+    for (const content of allContent) {
+      const templateHtml = await renderTemplate(content);
+      const html = await renderTemplate({
+        ...content,
+        template: 'index',
+        templateHtml,
+      });
+
+      const indexFolderPath = path.join(process.cwd(), 'www', content.path);
+      await fs.mkdir(indexFolderPath, { recursive: true });
+      await fs.writeFile(path.join(indexFolderPath, 'index.html'), html);
+    }
+    
+    console.log('downloading media...');
+
+    const params = {
+      Bucket: 'dotnyc',
+    };
+
+    const { Contents: objects } = await s3.listObjects(params).promise();
+    if (!objects) return;
+
+    const mediaFolderPath = path.join(process.cwd(), 'www/dist/media');
+    await fs.mkdir(mediaFolderPath, { recursive: true });
+
+    await Promise.all(objects.map(({ Key: key }) => {
+      if (!key) return null;
+
+      const remotePath = `${process.env.DOTNYC_BUCKET_PUBLIC_URL}/${key}`;
+      return download(remotePath, mediaFolderPath);
+    }));
   }
 })();
