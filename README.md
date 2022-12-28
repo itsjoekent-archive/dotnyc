@@ -38,7 +38,7 @@ _Why not use a newer trendier build tool, such as [Vite](https://vitejs.dev/), i
 2. Reads HTML templates in the `/templates` directory.
 3. Matches the content to the template, renders the template with [mustache](http://mustache.github.io/mustache.5.html).
 
-For production deploys, it does this process for every file in the `content` folder and outputs the result to nested `index.html` files in the build folder. It then downloads all of the media assets from [Cloudflare R2](https://www.cloudflare.com/products/r2/) into the output folder. The output folder is then deployed to Cloudflare's CDN.
+For production deploys, it does this process for every file in the `content` folder and outputs the result to nested `index.html` files in the build folder. The output folder is then deployed to Cloudflare's CDN.
 
 ## Mustache Template Functions
 
